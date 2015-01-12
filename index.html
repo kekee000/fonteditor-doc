@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FontEditor用户手册</title>
+    <link rel="stylesheet" type="text/css" href="./dep/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <script>
+    var _hmt = _hmt || [];
+    /baidu.com$/.test(location.hostname) && (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?65ce30cdeda584c416e39648915689f7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="../index.html">FontEditor用户手册</a>
+        </div>
+    </nav>
+
+    <div class="fonteditor-container">
+
+        <div class="sidebar-fonteditor" id="sidebar" role="navigation">
+          <div class="list-group">
+            <a href="#introduce" class="list-group-item active">FontEditor简介</a>
+            <a href="#open" class="list-group-item">创建|打开字体</a>
+            <a href="#edit-glyf" class="list-group-item">编辑字形</a>
+            <a href="#edit-path" class="list-group-item">编辑字形轮廓</a>
+            <a href="#edit-path" class="list-group-item">查找字形</a>
+          </div>
+        </div>
+
+
+      <div class="main-container">
+        <section id="introduce">
+            <h3>FontEditor简介</h3>
+            <p>FontEditor是一款在线字体编辑器软件，
+                能够打开本地或者远程的ttf|woff|eot格式的字体文件，
+                能够导入和导出ttf|woff|eot|svg格式的字体文件，
+                提供字形的编辑和调整功能，并能实时预览编辑效果。
+            </p>
+            <h3>字形信息</h3>
+            <p>一个ttf字体文件包含多个字形，字形包含以下信息：</p>
+            <ol>
+                <li>字形轮廓，多个字形轮廓组成一个字形。</li>
+                <li>unicode，unicode码元，一个字形可以对应多个unicode码元，但一个unicode编码只能对应一个字形</li>
+                <li>name，字形名称</li>
+                <li>leftSideBearing，左边距，字形轮廓左侧的留白</li>
+                <li>rightSideBearing，右边距，字形轮廓右侧的留白</li>
+            </ol>
+            <p><img src="./img/glyf.png"></p>
+
+            <h3>字体信息</h3>
+            <p>ttf字体信息包含字体的family,subfamily,version等信息，可以在<i class="setting-path">`设置`->`字体信息`</i>中设置相关的项目。</p>
+            <ol>
+                <li>fontFamily, 字体家族</li>
+                <li>fontSubFamily, 子字体家族</li>
+                <li>version，字体版本</li>
+                <li>unitsPerEm，em框大小，em框越大字体越精细</li>
+                <li>lowestRecPPEM，最小可读尺寸，字体最小可辨认的大小(像素)</li>
+            </ol>
+
+            <h3>字体度量</h3>
+            <p>在字体排版时候需要参考字体度量信息，来放置文字。通过设置上升、下降、行间距来调整文字垂直方向的距离；设置上标、下标、删除线可以调整上标、下标、删除线的位置和样式；其他设置请参考[<a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6OS2.html">OS/2</a>]。在<i class="setting-path">`设置`->`字体度量`</i>中设置相关的项目。</p>
+            <p><img src="./img/metrics.png"></p>
+        </section>
+      </div>
+
+    </div>
+
+    <script src="./dep/esl.js"></script>
+    <script src="./dep/jquery.min.js"></script>
+    <script src="./dep/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        require.config({
+            baseUrl: './src'
+        });
+        define('jquery', $);
+        require(['main'])
+    </script>
+
+    <script>
+    var _hmt = _hmt || [];
+    /baidu.com$/.test(location.hostname) && (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?65ce30cdeda584c416e39648915689f7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</body>
+</html>

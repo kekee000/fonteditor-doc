@@ -1,0 +1,23 @@
+body {
+  font-family: "Microsoft YaHei", sans-serif;
+}
+.navbar-inverse {
+  position: relative;
+}
+.navbar-inverse .navbar-brand {
+  color: #FFF;
+}
+.sidebar-fonteditor {
+  position: fixed;
+  width: 200px;
+  margin: 15px;
+}
+.main-container {
+  margin: 15px 0 0 230px;
+  overflow: hidden;
+}
+.setting-path {
+  font-style: normal;
+  font-weight: bold;
+  color: #F00;
+}
