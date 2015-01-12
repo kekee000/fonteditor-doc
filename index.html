@@ -24,25 +24,31 @@
 
     <div class="fonteditor-container">
 
-        <div class="sidebar-fonteditor" id="sidebar" role="navigation">
-          <div class="list-group">
+        <div class="sidebar-fonteditor" role="navigation">
+          <div  id="sidebar" class="list-group">
             <a href="#introduce" class="list-group-item active">FontEditor简介</a>
-            <a href="#open" class="list-group-item">创建|打开字体</a>
-            <a href="#edit-glyf" class="list-group-item">编辑字形</a>
-            <a href="#edit-path" class="list-group-item">编辑字形轮廓</a>
-            <a href="#edit-path" class="list-group-item">查找字形</a>
+            <a href="#open" class="list-group-item">新建|打开 字体</a>
+            <a href="#save" class="list-group-item">导出|预览 字体</a>
+            <a href="#editor-glyf" class="list-group-item">编辑字形列表</a>
+            <a href="#editor-path" class="list-group-item">编辑字形轮廓</a>
+            <a href="#editor-find" class="list-group-item">查找字形</a>
+            <a href="#editor-setting" class="list-group-item">编辑器设置</a>
+            <a href="#shortcut" class="list-group-item">快捷键</a>
           </div>
         </div>
 
 
       <div class="main-container">
+
         <section id="introduce">
-            <h3>FontEditor简介</h3>
+            <h2>FontEditor简介</h2>
+
             <p>FontEditor是一款在线字体编辑器软件，
                 能够打开本地或者远程的ttf|woff|eot格式的字体文件，
                 能够导入和导出ttf|woff|eot|svg格式的字体文件，
                 提供字形的编辑和调整功能，并能实时预览编辑效果。
             </p>
+
             <h3>字形信息</h3>
             <p>一个ttf字体文件包含多个字形，字形包含以下信息：</p>
             <ol>
@@ -55,7 +61,7 @@
             <p><img src="./img/glyf.png"></p>
 
             <h3>字体信息</h3>
-            <p>ttf字体信息包含字体的family,subfamily,version等信息，可以在<i class="setting-path">`设置`->`字体信息`</i>中设置相关的项目。</p>
+            <p>ttf字体信息包含字体的family,subfamily,version等信息，可以在<i class="setting">`设置`->`字体信息`</i>中设置相关的项目。</p>
             <ol>
                 <li>fontFamily, 字体家族</li>
                 <li>fontSubFamily, 子字体家族</li>
@@ -65,9 +71,106 @@
             </ol>
 
             <h3>字体度量</h3>
-            <p>在字体排版时候需要参考字体度量信息，来放置文字。通过设置上升、下降、行间距来调整文字垂直方向的距离；设置上标、下标、删除线可以调整上标、下标、删除线的位置和样式；其他设置请参考[<a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6OS2.html">OS/2</a>]。在<i class="setting-path">`设置`->`字体度量`</i>中设置相关的项目。</p>
+            <p>在字体排版时候需要参考字体度量信息，来放置文字。通过设置上升、下降、行间距来调整文字垂直方向的距离；
+                设置上标、下标、删除线可以调整上标、下标、删除线的位置和样式；
+                其他设置请参考[<a target="_blank" href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6OS2.html">OS/2</a>]。
+                在<i class="setting">`设置`->`字体度量`</i>中设置相关的项目。</p>
             <p><img src="./img/metrics.png"></p>
         </section>
+
+
+        <section id="open">
+            <h2>新建|打开 ttf字体文件</h2>
+
+            <p>点击<i class="setting">`新建`</i>按钮创建新的ttf文档，点击<i class="setting">`打开`</i>按钮打开ttf|woff格式字体文件。</p>
+            <p>点击<i class="setting">`保存项目`</i>按钮，保存当前项目</p>
+            <p>点击左侧<i class="setting">`项目列表`</i>打开保存的项目</p>
+            <p>点击左侧选中项目中的<i class="setting">`另存为`</i>按钮，保存项目副本</p>
+            <p>点击左侧选中项目中的<i class="setting">`删除`</i>按钮，删除当前项目</p>
+            <p><img src="./img/new.png"></p>
+        </section>
+
+        <section id="save">
+            <h2>保存|预览 字体文件</h2>
+
+            <p>点击<i class="setting">`导出ttf`</i>按钮，导出ttf格式文件。</p>
+            <p>点击<i class="setting">`导出woff`</i>按钮，导出woff格式文件。</p>
+            <p>点击<i class="setting">`导出zip`</i>按钮，导出包含ttf|woff|svg|eot文件的压缩包。</p>
+            <p>点击<i class="setting">`预览`</i>按钮，预览当前正在编辑的项目，chrome仅支持预览ttf|woff格式字体，safari支持预览svg字体，IE10+支持预览eot字体。</p>
+            <p><img src="./img/save.png"></p>
+        </section>
+
+        <section id="editor-glyf">
+            <h2>编辑字形列表</h2>
+
+            <h3>选中字形</h3>
+            <p>在主面板区域显示本字体项目的字形列表，列表上方的工具栏显示可以进行的操作。</p>
+            <p>字形列表第一个项目为`.notdef`缺失字形，如果排版过程中unicode没有对应的字形，则使用缺失字形替代，因此<em>缺失字形不能够被删除</em>。</p>
+            <p>点击单个字形可以设置字形的 `选中`、`不选` 状态。</p>
+            <p><img src="./img/select.png"></p>
+
+            <h3>主面板工具栏</h3>
+            <p>在主面板上方的工具栏中可以对选中的字形进行操作。</p>
+            <p>点击<i class="setting">`调整位置`</i>按钮打开调整位置对话框，对字形的左边轴、右边轴、基线偏移进行设置，如果没有选中的字形，则默认操作所有字形。</p>
+            <p>点击<i class="setting">`调整字形`</i>按钮打开调整字形对话框，选中`镜像`，
+                `翻转`，对字形进行`镜像`，`翻转`设置，填写`按比例缩放`对字形按比例进行缩放，
+                填写`缩放字形到上下边界`对字形调整上下边界（此处设置可以调整字形到统一高度，在字形高度需要调整到一致时可以使用），
+                如果没有选中的字形，则默认操作所有字形。</p>
+            <p>点击<i class="setting">`查找字形`</i>按钮，打开查找字形对话框，输入要查找的unicode，则选中找到的字形。</p>
+            <p>点击<i class="setting">`设置代码点`</i>按钮，打开设置代码点对话框，
+                可以设置代码点为`ascii`或者`unicode private data`的起始代码点，
+                选中的字形会自动填充unicode代码点和字形名称，如果没有选中的字形，则默认操作所有字形。</p>
+            <p><em>颜色为浅绿色的字形为复合字形，FontEditor编辑器暂不支持复合字形的编辑。</em></p>
+            <p><img src="./img/select.png"></p>
+        </section>
+
+
+        <section id="editor-path">
+            <h2>编辑字形轮廓</h2>
+
+            <h3>进入编辑轮廓模式</h3>
+            <p>在主面板，鼠标移动到要编辑的字形上面，右上角出现<em>`编辑`</em>图标，点击图标进入字形编辑界面。</p>
+            <p>在主面板，按<em>`F2`</em>键，打开或关闭轮廓编辑器。</p>
+            <p><img src="./img/edit.png"></p>
+
+
+            <h3>轮廓编辑器</h3>
+            <p>在轮廓编辑器中，字形右侧的蓝线为<em>`rightSideBearing`</em>右边距线，拖动右边距线，设置字形的右边距。</p>
+            <p>在轮廓编辑器中，上边缘刻度线为水平刻度线，左边缘刻度线为垂直刻度线，刻度线单位为`point`。</p>
+            <p>在轮廓编辑器中，红色辅助线为测量线，从上到下依次为：</p>
+            <ol>
+                <li><em>`ascent`</em>，所有字形的上边缘，原则上字形上边缘不超过`ascent`</li>
+                <li><em>`capHeight`</em>大写H高度</li>
+                <li><em>`xHeight`</em>小写x高度</li>
+                <li><em>`baseline`</em>基线，字形排版的基准线</li>
+                <li><em>`descent`</em>下边缘，所有字形的下边缘，原则上字形下边缘不超过`descent`</li>
+            </ol>
+
+            <p><img src="./img/edit-glyf.png"></p>
+
+            <h3>编辑字形轮廓</h3>
+            <p>在轮廓编辑器中，点击轮廓选中要编辑的轮廓，按住<em>`ctrl`</em>键选中，不选轮廓。</p>
+            <p>在轮廓编辑器中，按<em>`delete`</em>键删除选中的轮廓。</p>
+            <p>在轮廓编辑器中，按<em>`←`</em>，<em>`→`</em>，<em>`↑`</em>，<em>`↓`</em>键左移、右移、上移、下移选中的轮廓。</p>
+            <p>在轮廓编辑器中，拖动选中的轮廓到指定的位置，拖动过程中出现的绿色线条为对齐线条，会将拖动的轮廓对齐到其他轮廓或`辅助线`。</p>
+            <p>在轮廓编辑器中，按住<em>`ctrl`+`alt`</em>键，同时拖动轮廓，复制选中的轮廓。</p>
+
+
+
+
+
+            <h3>创建辅助线</h3>
+            <p>在轮廓编辑器中，拖动上边缘和左边缘，会拖出水平、垂直参考线以方便对齐。</p>
+            <p>在轮廓编辑器中，右键空白区域，点击<i class="setting">`添加参考线`</i>创建参考线。</p>
+            <p>在轮廓编辑器中，右键选中的字形，点击<i class="setting">`添加边界参考线`</i>创建边界参考线。</p>
+            <p><img src="./img/referenceline.png"></p>
+
+
+        </section>
+
+
+
+
       </div>
 
     </div>
@@ -79,7 +182,7 @@
         require.config({
             baseUrl: './src'
         });
-        define('jquery', $);
+        define('jquery', window.jQuery);
         require(['main'])
     </script>
 

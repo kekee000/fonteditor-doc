@@ -16,8 +16,18 @@ body {
   margin: 15px 0 0 230px;
   overflow: hidden;
 }
-.setting-path {
+.main-container section {
+  margin-top: 60px;
+}
+.main-container section .setting {
   font-style: normal;
   font-weight: bold;
   color: #F00;
+}
+.main-container section em {
+  font-style: normal;
+  color: #F00;
+}
+.main-container section:first-child {
+  margin-top: 0;
 }
