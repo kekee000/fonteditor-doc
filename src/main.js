@@ -8,8 +8,8 @@
 define(
     function (require) {
 
-        var AnchorDetect = require('./AnchorDetect');
-        var scrollTo = require('./scrollTo');
+        var AnchorDetect = require('./ui/AnchorDetect');
+        var scrollTo = require('./ui/scrollTo');
 
         var entry = {
 
@@ -30,14 +30,14 @@ define(
                 var scrollToAnchor = function(anchor) {
                     var ctlAnchor;
                     if (anchor && (ctlAnchor = $('[data-anchor="' + anchor + '"]')).length) {
-                        sidebar.find('.active').removeClass('active');
-                        $(this).addClass('active');
-                        anchorDetect.stop();
 
+                        anchorDetect.stop();
                         scrollTo(ctlAnchor, {
                             top: -70,
                             onFinish: function() {
                                 location.hash = anchor;
+                                sidebar.find('.active').removeClass('active');
+                                sidebar.find('[href*="#' + anchor + '"]').addClass('active')
                                 anchorDetect.start();
                             }
                         });
