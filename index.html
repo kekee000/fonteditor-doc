@@ -17,6 +17,7 @@
 </head>
 <body>
     <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+        <a class="ico i-github forkme" href="https://github.com/ecomfe/fonteditor" target="_blank">Fork me on Github</a>
         <div class="navbar-header">
           <a class="navbar-brand" href="../index.html">FontEditor用户手册</a>
         </div>
@@ -34,13 +35,15 @@
             <a href="#editor-find" class="list-group-item">查找字形</a>
             <a href="#editor-setting" class="list-group-item">编辑器设置</a>
             <a href="#shortcut" class="list-group-item">快捷键</a>
+            <a href="#document" class="list-group-item">相关文档</a>
+            <a href="#thank-to" class="list-group-item">感谢</a>
           </div>
         </div>
 
 
       <div class="main-container">
 
-        <section id="introduce">
+        <section data-anchor="introduce">
             <h2>FontEditor简介</h2>
 
             <p>FontEditor是一款在线字体编辑器软件，
@@ -70,6 +73,8 @@
                 <li>lowestRecPPEM，最小可读尺寸，字体最小可辨认的大小(像素)</li>
             </ol>
 
+            <p><img src="./img/names.png"></p>
+
             <h3>字体度量</h3>
             <p>在字体排版时候需要参考字体度量信息，来放置文字。通过设置上升、下降、行间距来调整文字垂直方向的距离；
                 设置上标、下标、删除线可以调整上标、下标、删除线的位置和样式；
@@ -79,7 +84,7 @@
         </section>
 
 
-        <section id="open">
+        <section data-anchor="open">
             <h2>新建|打开 ttf字体文件</h2>
 
             <p>点击<i class="setting">`新建`</i>按钮创建新的ttf文档，点击<i class="setting">`打开`</i>按钮打开ttf|woff格式字体文件。</p>
@@ -90,8 +95,8 @@
             <p><img src="./img/new.png"></p>
         </section>
 
-        <section id="save">
-            <h2>保存|预览 字体文件</h2>
+        <section data-anchor="save">
+            <h2>导出|预览 字体文件</h2>
 
             <p>点击<i class="setting">`导出ttf`</i>按钮，导出ttf格式文件。</p>
             <p>点击<i class="setting">`导出woff`</i>按钮，导出woff格式文件。</p>
@@ -100,12 +105,12 @@
             <p><img src="./img/save.png"></p>
         </section>
 
-        <section id="editor-glyf">
+        <section data-anchor="editor-glyf">
             <h2>编辑字形列表</h2>
 
             <h3>选中字形</h3>
             <p>在主面板区域显示本字体项目的字形列表，列表上方的工具栏显示可以进行的操作。</p>
-            <p>字形列表第一个项目为`.notdef`缺失字形，如果排版过程中unicode没有对应的字形，则使用缺失字形替代，因此<em>缺失字形不能够被删除</em>。</p>
+            <p>字形列表第一个项目为`.notdef`缺失字形，如果排版过程中unicode没有对应的字形，则使用缺失字形替代，因此<em>第一个字形为系统指定字形，不能随意删除</em>。</p>
             <p>点击单个字形可以设置字形的 `选中`、`不选` 状态。</p>
             <p><img src="./img/select.png"></p>
 
@@ -125,19 +130,19 @@
         </section>
 
 
-        <section id="editor-path">
+        <section data-anchor="editor-path">
             <h2>编辑字形轮廓</h2>
 
             <h3>进入编辑轮廓模式</h3>
             <p>在主面板，鼠标移动到要编辑的字形上面，右上角出现<em>`编辑`</em>图标，点击图标进入字形编辑界面。</p>
-            <p>在主面板，按<em>`F2`</em>键，打开或关闭轮廓编辑器。</p>
+            <p>在主面板，按<em>`F2`</em>键，打开或关闭字形编辑器。</p>
             <p><img src="./img/edit.png"></p>
 
 
-            <h3>轮廓编辑器</h3>
-            <p>在轮廓编辑器中，字形右侧的蓝线为<em>`rightSideBearing`</em>右边距线，拖动右边距线，设置字形的右边距。</p>
-            <p>在轮廓编辑器中，上边缘刻度线为水平刻度线，左边缘刻度线为垂直刻度线，刻度线单位为`point`。</p>
-            <p>在轮廓编辑器中，红色辅助线为测量线，从上到下依次为：</p>
+            <h3>字形编辑器</h3>
+            <p>在字形编辑器中，字形右侧的蓝线为<em>`rightSideBearing`</em>右边距线，拖动右边距线，设置字形的右边距。</p>
+            <p>在字形编辑器中，上边缘刻度线为水平刻度线，左边缘刻度线为垂直刻度线，刻度线单位为`point`。</p>
+            <p>在字形编辑器中，红色辅助线为测量线，从上到下依次为：</p>
             <ol>
                 <li><em>`ascent`</em>，所有字形的上边缘，原则上字形上边缘不超过`ascent`</li>
                 <li><em>`capHeight`</em>大写H高度</li>
@@ -148,28 +153,172 @@
 
             <p><img src="./img/edit-glyf.png"></p>
 
-            <h3>编辑字形轮廓</h3>
-            <p>在轮廓编辑器中，点击轮廓选中要编辑的轮廓，按住<em>`ctrl`</em>键选中，不选轮廓。</p>
-            <p>在轮廓编辑器中，按<em>`delete`</em>键删除选中的轮廓。</p>
-            <p>在轮廓编辑器中，按<em>`←`</em>，<em>`→`</em>，<em>`↑`</em>，<em>`↓`</em>键左移、右移、上移、下移选中的轮廓。</p>
-            <p>在轮廓编辑器中，拖动选中的轮廓到指定的位置，拖动过程中出现的绿色线条为对齐线条，会将拖动的轮廓对齐到其他轮廓或`辅助线`。</p>
-            <p>在轮廓编辑器中，按住<em>`ctrl`+`alt`</em>键，同时拖动轮廓，复制选中的轮廓。</p>
+            <h3>编辑字形</h3>
+            <p>在字形编辑器中，点击轮廓选中要编辑的轮廓，按住<em>`ctrl`</em>键选中，不选轮廓。</p>
+            <p>在字形编辑器中，按<em>`delete`</em>键删除选中的轮廓。</p>
+            <p>在字形编辑器中，按<em>`←`</em>，<em>`→`</em>，<em>`↑`</em>，<em>`↓`</em>键左移、右移、上移、下移选中的轮廓。</p>
+            <p>在字形编辑器中，拖动选中的轮廓到指定的位置，拖动过程中出现的绿色线条为对齐线条，会将拖动的轮廓对齐到其他轮廓或`辅助线`。</p>
+            <p>在字形编辑器中，按住<em>`ctrl`+`alt`</em>键，同时拖动轮廓，复制选中的轮廓。</p>
 
 
+
+            <h3>字形变换</h3>
+            <p>在字形编辑器中，右键选中轮廓，点击<em>`变换`</em>中的项目，对轮廓做相应变化。</p>
+            <p>在字形编辑器中，拖动选择框上的8个小方框改变轮廓大小，按住`shift`拖动，改变轮廓形状。</p>
+            <p>在字形编辑器中，单击选择框进入倾斜变换模式，拖动小方块，旋转和倾斜变换轮廓。</p>
+            <p><img src="./img/transform.png"></p>
+
+
+            <h3>编辑单个轮廓</h3>
+            <p>在字形编辑器中，双击单个轮廓，或选中轮廓，在工具栏中单击<em>`点模式`</em>按钮进入轮廓线条编辑模式。</p>
+            <p>拖动单个点改变轮廓形状。</p>
+            <p>右键打开轮廓点编辑菜单，可以进行如下操作：</p>
+            <p>点击<em>`添加点`</em>在当前点后面和下一个点前面插入一个轮廓上的点。</p>
+            <p>点击<em>`删除点`</em>删除当前点。</p>
+            <p>点击<em>`在曲线上`</em>设置当前的点在曲线上。</p>
+            <p>点击<em>`远离曲线`</em>设置当前的点远离曲线。</p>
+            <p>点击<em>`作为开始点`</em>设置当前的点作为曲线开始点。</p>
+
+            <p><img src="./img/path-point.png"></p>
+
+
+            <h3>字形编辑器工具栏</h3>
+            <p>在字形编辑器中，点击<em>`点模式`</em>按钮，将选中的轮廓进入点模式编辑。</p>
+            <p>在字形编辑器中，点击<em>`上移一层`</em>按钮，将选中的轮廓上移一层。</p>
+            <p>在字形编辑器中，点击<em>`下移一层`</em>按钮，将选中的轮廓下移一层。</p>
+            <p>在字形编辑器中，点击<em>`改变方向`</em>按钮，将选中的轮廓改变方向。</p>
+            <p>在字形编辑器中，点击<em>`左对齐`</em>按钮，将选中的轮廓左侧对齐到y轴基线。</p>
+            <p>在字形编辑器中，点击<em>`居中对齐`</em>按钮，将选中的轮廓中心对齐到左边轴和右边轴的中间线。</p>
+            <p>在字形编辑器中，点击<em>`右对齐`</em>按钮，将选中的轮廓右侧对齐到y轴右边距。</p>
+            <p>在字形编辑器中，点击<em>`顶端对齐`</em>按钮，将选中的轮廓上侧对齐到字体上边缘。</p>
+            <p>在字形编辑器中，点击<em>`居中对齐`</em>按钮，将选中的轮廓中间对齐到字体上边缘和下边缘中间。</p>
+            <p>在字形编辑器中，点击<em>`底端对齐`</em>按钮，将选中的轮廓底部对齐到字体下边缘。</p>
+            <p>在字形编辑器中，点击<em>`基线对齐`</em>按钮，将选中的轮廓底部对齐到字体基线。</p>
+            <p>在字形编辑器中，点击<em>`向左旋转`</em>按钮，将选中的轮廓逆时针旋转90度。</p>
+            <p>在字形编辑器中，点击<em>`向右旋转`</em>按钮，将选中的轮廓顺时针旋转90度。</p>
+            <p>在字形编辑器中，点击<em>`翻转`</em>按钮，将选中的轮廓做翻转操作。</p>
+            <p>在字形编辑器中，点击<em>`镜像`</em>按钮，将选中的轮廓做镜像操作。</p>
+            <p>在字形编辑器中，点击<em>`切割轮廓`</em>按钮，进入切割轮廓模式，拖出切割线完成对轮廓的切割。</p>
+            <p>在字形编辑器中，点击<em>`合并轮廓`</em>按钮，合并选中的轮廓。</p>
+            <p>在字形编辑器中，点击<em>`相交轮廓`</em>按钮，将选中的轮廓取交集。</p>
+            <p>在字形编辑器中，点击<em>`相切轮廓`</em>按钮，将选中的轮廓取相切。</p>
+
+            <p><img src="./img/edit-tooltip.png"></p>
+
+
+
+            <h3>右键菜单</h3>
+            <p>在字形编辑器中，右键空白区域打开右键菜单。</p>
+            <p>点击<em>`添加路径`</em>按钮进入添加路径模式。</p>
+            <p>点击<em>`添加形状`</em>按钮添加指定形状到字形中。</p>
+            <p>点击<em>`重置缩放`</em>按钮将形状缩放到视窗中央。</p>
+            <p>点击<em>`字形信息`</em>按钮打开字形信息对话框，可以对当前编辑的字形设置字形信息。</p>
+            <p>点击<em>`重置缩放`</em>按钮将形状缩放到视窗中央。</p>
+            <p>点击<em>`保存`</em>按钮保存当前形状到形状列表，保存之后的字形会以蓝色标识。</p>
+            <p><img src="./img/context-menu.png"></p>
+
+            <p>在字形编辑器中，选择多个轮廓后右键，打开右键菜单。</p>
+            <p>点击<em>`对齐形状`->`左对齐`</em>按钮，对选中的轮廓对齐到左侧。</p>
+            <p>点击<em>`对齐形状`->`居中对齐`</em>按钮，对选中的轮廓对齐到轮廓中间。</p>
+            <p>点击<em>`对齐形状`->`右对齐`</em>按钮，对选中的轮廓对齐到右侧。</p>
+            <p>点击<em>`对齐形状`->`顶部对齐`</em>按钮，对选中的轮廓对齐到轮廓顶部。</p>
+            <p>点击<em>`对齐形状`->`中间对齐`</em>按钮，对选中的轮廓对齐到中间。</p>
+            <p>点击<em>`对齐形状`->`底部对齐`</em>按钮，对选中的轮廓对齐到底部。</p>
+            <p><img src="./img/context-menu-2.png"></p>
 
 
 
             <h3>创建辅助线</h3>
-            <p>在轮廓编辑器中，拖动上边缘和左边缘，会拖出水平、垂直参考线以方便对齐。</p>
-            <p>在轮廓编辑器中，右键空白区域，点击<i class="setting">`添加参考线`</i>创建参考线。</p>
-            <p>在轮廓编辑器中，右键选中的字形，点击<i class="setting">`添加边界参考线`</i>创建边界参考线。</p>
+            <p>在字形编辑器中，拖动上边缘和左边缘，会拖出水平、垂直参考线以方便对齐。</p>
+            <p>在字形编辑器中，右键空白区域，点击<i class="setting">`添加参考线`</i>创建参考线。</p>
+            <p>在字形编辑器中，右键选中的字形，点击<i class="setting">`添加边界参考线`</i>创建边界参考线。</p>
             <p><img src="./img/referenceline.png"></p>
-
 
         </section>
 
 
+        <section data-anchor="editor-find">
+            <h2>查找字形</h2>
 
+            <p>在主面板工具栏中，点击查找字形，打开查找字形对话框，输入要查找的unicode，则选中找到的字形，未找到字形，则不作任何改变。</p>
+            <p>在主面板，按<em>`F2`</em>键，打开或关闭字形编辑器。</p>
+            <p><img src="./img/find.png"></p>
+        </section>
+
+        <section data-anchor="editor-setting">
+            <h2>编辑器设置</h2>
+
+            <p>点击<i class="setting">`设置`->`编辑器设置`</i>打开编辑器设置对话框</p>
+            <p>填写字体列表颜色、大小、个数，设置字体列表外观。</p>
+            <p>填写网格线以及度量线输入框，改变网格线和度量线设置。</p>
+            <p>勾选<em>`保存设置`</em>，保存当前设置，若不勾选则仅对当前窗口有效。</p>
+            <p>点击<em>`重置为默认设置`</em>按钮，将设置重置为默认值。</p>
+            <p>点击<em>`确定`</em>按钮，设置生效。</p>
+
+            <p><img src="./img/editor-setting.png"></p>
+        </section>
+
+        <section data-anchor="shortcut">
+            <h2>快捷键</h2>
+
+
+            <h3>主面板快捷键</h3>
+            <ol>
+                <li><em>`F2`</em>，打开/关闭字形编辑器</li>
+                <li><em>`delete`</em>，删除选中字形</li>
+                <li><em>`ctrl + A`</em>，全选字形</li>
+                <li><em>`ctrl + C`</em>，复制选中字形</li>
+                <li><em>`ctrl + X`</em>，剪切选中字形</li>
+                <li><em>`ctrl + V`</em>，粘贴选中字形</li>
+                <li><em>`ctrl + Z`</em>，撤销字形列表操作</li>
+                <li><em>`esc`</em>，取消选中字形</li>
+                <li><em>`ctrl + S`</em>，保存当前项目</li>
+            </ol>
+
+            <h3>字形编辑器快捷键</h3>
+            <ol>
+                <li><em>`F2`</em>，打开/关闭字形编辑器</li>
+                <li><em>`delete`</em>，删除选中轮廓</li>
+                <li><em>`ctrl + A`</em>，全选轮廓</li>
+                <li><em>`ctrl + C`</em>，复制选中轮廓</li>
+                <li><em>`ctrl + X`</em>，剪切选中轮廓</li>
+                <li><em>`ctrl + V`</em>，粘贴选中轮廓</li>
+                <li><em>`ctrl + Z`</em>，撤销轮廓操作</li>
+                <li><em>`esc`</em>，取消选中轮廓</li>
+                <li><em>`ctrl + S`</em>，保存当前字形到字形列表</li>
+                <li><em>`双击轮廓`</em>，进入轮廓编辑模式</li>
+                <li><em>`ctrl + alt + 拖动`</em>，复制选中轮廓</li>
+                <li><em>`ctrl + 拖动`</em>，沿X轴拖动选中轮廓</li>
+                <li><em>`alt + 拖动`</em>，沿Y轴拖动选中轮廓</li>
+                <li><em>`ctrl + 点击轮廓`</em>，选择/不选轮廓</li>
+            </ol>
+
+        </section>
+
+
+        <section data-anchor="document">
+            <h2>相关文档</h2>
+
+            <ol>
+                <li><a target="_blank" href="https://developer.apple.com/fonts/TrueType-Reference-Manual/">TrueType™ Reference Manual</a></li>
+                <li><a target="_blank" href="http://www.microsoft.com/typography/otspec/">OpenType specification</a></li>
+                <li><a target="_blank" href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM02/Chap2.html">The Font Engine</a></li>
+                <li><a target="_blank" href="http://www.w3.org/TR/SVG11/fonts.html">SVG Font</a></li>
+            </ol>
+        </section>
+
+
+        <section data-anchor="thank-to">
+            <h2>感谢</h2>
+
+            <ol>
+                <li><a target="_blank" href="https://github.com/fontello/svg2ttf">fontello/svg2ttf</a></li>
+                <li><a target="_blank" href="https://github.com/fontello/ttf2eot">fontello/ttf2eot</a></li>
+                <li><a target="_blank" href="https://github.com/ynakajima/ttf.js">ynakajima/ttf.js</a></li>
+                <li><a target="_blank" href="https://github.com/ecomfe/zrender">ecomfe/zrender</a></li>
+                <li><a target="_blank" href="https://github.com/fontforge/fontforge">fontforge/fontforge</a></li>
+            </ol>
+        </section>
 
       </div>
 

@@ -9,6 +9,7 @@ define(
     function (require) {
 
         var AnchorDetect = require('./AnchorDetect');
+        var scrollTo = require('./scrollTo');
 
         var entry = {
 
@@ -16,17 +17,45 @@ define(
              * 初始化
              */
             init: function () {
-
+                var sidebar = $('#sidebar');
                 var anchorDetect = new AnchorDetect(window, {
-                    selector: 'section[id]',
+                    selector: 'section[data-anchor]',
+                    anchorOffset: -71,
                     onAnchorChange: function(e) {
-                        var anchor = $(e.target).attr('id');
-                        var sidebar = $('#sidebar');
                         sidebar.find('.active').removeClass('active');
-                        sidebar.find('[href*="#' + anchor + '"]').addClass('active')
+                        sidebar.find('[href*="#' + e.anchor + '"]').addClass('active')
                     }
                 });
 
+                var scrollToAnchor = function(anchor) {
+                    var ctlAnchor;
+                    if (anchor && (ctlAnchor = $('[data-anchor="' + anchor + '"]')).length) {
+                        sidebar.find('.active').removeClass('active');
+                        $(this).addClass('active');
+                        anchorDetect.stop();
+
+                        scrollTo(ctlAnchor, {
+                            top: -70,
+                            onFinish: function() {
+                                location.hash = anchor;
+                                anchorDetect.start();
+                            }
+                        });
+                    }
+                }
+
+                sidebar.on('click', '[href]', function(e) {
+                    e.preventDefault();
+                    var hash = this.href.slice(this.href.lastIndexOf('#') + 1);
+                    hash && scrollToAnchor(hash);
+                });
+
+                $(window).on('load', function() {
+                    anchorDetect.refresh();
+                    if (location.hash) {
+                        scrollToAnchor(location.hash.slice(1));
+                    }
+                });
             }
         };
 
