@@ -53,7 +53,8 @@ exports.exclude = [
     "dep",
     ".DS_Store",
     ".gitignore",
-    "package.json"
+    "package.json",
+    "node_modules"
 ];
 
 exports.injectProcessor = function ( processors ) {
