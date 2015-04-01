@@ -154,6 +154,19 @@
             <p>点击<i class="setting">`导入`->`导入svg`</i>按钮，可以导入本地svg文件，支持svg字体和svg格式字形，可一次导入多个svg文件。</p>
             <p>FontEditor会对svg做字形转换，有些svg命令转换成轮廓会导致失真，需要导入后做调整。FontEditor会对常用的svg命令做转换处理，如果有不支持的命令，则需要手动调整字形。</p>
 
+            <h3>导入图片</h3>
+            <p>点击<i class="setting">`导入`->`导入图片`</i>按钮，可以导入本地图片。</p>
+            <p>点击<em>`选择图片`</em>按钮，打开需要导入的图片，图片应在适当大小，并且对比度比较高，否则导入处理会比较慢，或者效果不理想。</p>
+            <p>图像面板左侧为图片分离出来的原始轮廓，右侧为拟合后的字形轮廓，右侧的轮廓为最终导入的字形轮廓。</p>
+            <p>点击右上角<em>`适应窗口`</em>对面板进行缩放适应窗口，点击<em>`查看原图`</em>、<em>`查看轮廓`</em>按钮，分别查看原图和轮廓。</p>
+            <p>预处理选项可以对图片进行简单的预处理。</p>
+            <p>点击`<em>反转</em>`按钮反转图像，拖动`<em>高斯平滑</em>`滑块对图像边界进行平滑处理，拖动`<em>对比度</em>`滑块调整图像对比度，点击`<em>恢复</em>`按钮恢复预处理。</p>
+            <p>轮廓选项可以对提取的轮廓进一步加工。</p>
+            <p>拖动`<em>二值化阈值</em>`滑块调整二值化后的轮廓，向左拖动减少细节，向右拖动增加细节，预设的阈值可以辅助筛选轮廓。
+                点击`<em>消除杂点</em>`按钮消除二值化后的杂点，点击`<em>消除孔洞</em>`按钮消除二值化后的孔洞，
+                点击`<em>膨胀</em>`按钮膨胀轮廓，点击`<em>腐蚀</em>`按钮腐蚀轮廓，点击`<em>恢复</em>`恢复轮廓处理。</p>
+            <p>点击`<em>确定</em>`按钮确定导入轮廓。</p>
+            <p><img src="./img/import-pic.png"></p>
 
             <h3>从Adobe Illustrator导出字形</h3>
             <p>在Adobe Illustrator中编辑字形完毕之后，选择<em>`存储为web和设备所用格式`</em>，在导出选项中选择svg，勾选<em>`转化为轮廓`</em>，然后导出，这样导出的svg可以更好的被FontEditor识别。</p>
@@ -162,6 +175,9 @@
             <p>对于非`path`标签，如ellipse，polygon 在导入的时候合并为一个字形 </p>
 
             <p><img src="./img/import.png"></p>
+
+
+
         </section>
 
 
@@ -362,6 +378,9 @@
                 <li><a target="_blank" href="https://github.com/ynakajima/ttf.js">ynakajima/ttf.js</a></li>
                 <li><a target="_blank" href="https://github.com/ecomfe/zrender">ecomfe/zrender</a></li>
                 <li><a target="_blank" href="https://github.com/fontforge/fontforge">fontforge/fontforge</a></li>
+                <li><a target="_blank" href="https://github.com/Itseez/opencv">Itseez/opencv</a></li>
+                <li><a target="_blank" href="http://tog.acm.org/resources/GraphicsGems/">GraphicsGems</a></li>
+                <li><a target="_blank" href="https://github.com/AlloyTeam/AlloyImage">AlloyTeam/AlloyImage</a></li>
             </ol>
         </section>
 
