@@ -32,7 +32,9 @@
             <a href="#save" class="list-group-item">导出|预览 字体</a>
             <a href="#editor-glyf" class="list-group-item">编辑字形列表</a>
             <a href="#import" class="list-group-item">导入字形</a>
+            <a href="#font-sync" class="list-group-item">同步字体文件</a>
             <a href="#editor-path" class="list-group-item">编辑字形轮廓</a>
+            <a href="#export-glyf" class="list-group-item">导出字形</a>
             <a href="#editor-find" class="list-group-item">查找字形</a>
             <a href="#editor-setting" class="list-group-item">编辑器设置</a>
             <a href="#shortcut" class="list-group-item">快捷键</a>
@@ -109,13 +111,20 @@
             <p>点击<i class="setting">`预览`</i>按钮，预览当前正在编辑的项目，chrome仅支持预览ttf|woff格式字体，safari支持预览svg字体，IE10+支持预览eot字体。</p>
             <p>注意：<em>FontEditor为纯前端字体编辑器，处理字形个数超过3000个的项目时会超出脚本执行时间，导致导出失败，因此需要注意编辑超多字形时，请使用FontCreator等桌面软件。</em></p>
             <p><img src="./img/save.png"></p>
+        </section>
 
+        <section data-anchor="font-sync">
             <h3>同步字体文件</h3>
             <p>在主面板工具栏中点击<em>`同步字体`</em>，打开同步字体对话框。</p>
-            <p>输入远程地址，字体名称，选择需要同步的字体类型即可进行同步，勾选<em>`自动同步`</em>复选框则在保存项目的时候会自动同步字体到指定的地址。</p>
+            <p>输入远程地址，推送地址，字体名称，选择需要同步的字体类型即可进行同步，勾选<em>`自动同步`</em>复选框则在保存项目的时候会自动同步字体到指定的地址。</p>
+
             <p>点击<em>`取消同步`</em>按钮取消同步设置。</p>
             <p>在项目列表中点击<em>`同步`</em>按钮可以手动同步当前字体。</p>
-            <p>注意：<em>FontEditor不检查同步地址是否有效，如果同步不成功，请参考`<a target="_blank" href="https://github.com/ecomfe/fonteditor/blob/master/demo/sync/font.php">此处同步代码</a>`</em>。</p>
+            <p>其中：</p>
+            <p>远程地址：支持`FontEditor`同步协议的服务器地址，关于同步规则请参考如下示例：<a target="_blank" href="https://github.com/ecomfe/fonteditor/blob/master/demo/sync/font.php">同步服务代码</a></p>
+            <p>推送地址：支持`FontEditor`推送协议的服务器地址，<em>FontEditor不检查推送地址是否有效，如果推送不成功，请参考`<a target="_blank" href="https://github.com/ecomfe/fonteditor/blob/master/demo/sync/font.php">推送代码</a>`</em>。</p>
+            <p>字体名称：需要同步的字体文件名，作为字体标识</p>
+            <p>字体类型：需要同步的字体类型，FontEditor会在同步时把指定类型的数据，发送给同步服务器。</p>
             <p><img src="./img/sync.png"></p>
         </section>
 
@@ -187,11 +196,7 @@
             <p>对于非`path`标签，如ellipse，polygon 在导入的时候合并为一个字形 </p>
 
             <p><img src="./img/import.png"></p>
-
-
-
         </section>
-
 
         <section data-anchor="editor-path">
             <h2>编辑字形轮廓</h2>
@@ -300,12 +305,22 @@
 
         </section>
 
+        <section data-anchor="export-glyf">
+            <h2>导出字形</h2>
+            <p>FontEditor支持将单个字形导出到png或者svg文件。</p>
+            <p>在字形编辑器中，选择字形后，点击<i class="setting">`导出字形`</i>按钮，打开导出字形对话框。</p>
+            <p>设置<i class="setting">`字形颜色`</i>和<i class="setting">`字形大小`</i>之后，
+            点击<i class="setting">`下载SVG`</i>导出svg格式文件，
+            点击<i class="setting">`下载PNG`</i>导出png格式文件。</p>
+            <p><img src="./img/export-glyf.png"></p>
+        </section>
 
         <section data-anchor="editor-find">
             <h2>查找字形</h2>
 
             <p>在主面板工具栏中，点击查找字形，打开查找字形对话框，默认`<em>按代码点查找字形</em>`，输入要查找的unicode，找到的字形会被选中，未找到字形，则不作任何改变。</p>
-            <p>选择`<em>按名字查找字形</em>`，输入字形名称，按名称查找到相应的字形，找到的字形会被选中，未找到字形，则不作任何改变。</p>
+            <p>选择<em>`按名字查找字形`</em>，输入字形名称，按名称查找到相应的字形，找到的字形会被选中，未找到字形，则不作任何改变。</p>
+            <p>选择<em>`按字形序号查找字形`</em>，输入字形序号，则找到的字形会被选中。</p>
             <p><img src="./img/find.png"></p>
         </section>
 
