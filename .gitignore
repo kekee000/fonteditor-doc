@@ -14,4 +14,4 @@ release
 npm-debug.log
 node_modules
 *.css
-
+dist

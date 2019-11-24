@@ -1,0 +1,36 @@
+{
+  "name": "fonteditor-doc",
+  "version": "1.0.0",
+  "description": "fonteditor doc",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "webpack-dev-server --open --config ./webpack.js",
+    "prod": "webpack --production --config ./webpack.js",
+    "build": "sh build.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kekee000/fonteditor-doc.git"
+  },
+  "keywords": [
+    "fonteditor",
+    "doc"
+  ],
+  "author": "kekee000",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kekee000/fonteditor-doc/issues"
+  },
+  "homepage": "https://github.com/kekee000/fonteditor-doc#readme",
+  "devDependencies": {
+    "css-loader": "^3.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  }
+}
