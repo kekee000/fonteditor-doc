@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>FontEditor用户手册</title>
+    <title>FontEditor 用户手册</title>
     <link rel="stylesheet" type="text/css" href="./dep/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="./css/main.css">
     <script>
     var _hmt = _hmt || [];
     /baidu.com$/.test(location.hostname) && (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?65ce30cdeda584c416e39648915689f7";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?65ce30cdeda584c416e39648915689f7";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
     })();
     </script>
 </head>
@@ -50,8 +49,8 @@
             <h2>FontEditor简介</h2>
 
             <p>FontEditor是一款在线字体编辑器软件，
-                能够打开本地或者远程的ttf|woff|eot|otf格式的字体文件，
-                能够导入和导出ttf|woff|eot|svg|otf格式的字体文件，
+                能够打开本地或者远程的ttf|woff|woff2|eot|otf格式的字体文件，
+                能够导入和导出ttf|woff|woff2|eot|svg|otf格式的字体文件，
                 提供字形的编辑和轮廓编辑功能，提供字体的实时预览功能。
             </p>
             <p>FontEditor支持的浏览器：chrome，safari，firefox，IE10+(仅能预览)</p>
@@ -94,7 +93,7 @@
         <section data-anchor="open">
             <h2>新建|打开 ttf字体文件</h2>
 
-            <p>点击<i class="setting">`新建`</i>按钮，创建新的项目，点击<i class="setting">`打开`</i>按钮打开ttf|woff|otf格式字体文件，（注：暂不支持otf字体编辑和生成，打开otf字体后会自动转换成ttf字体）。</p>
+            <p>点击<i class="setting">`新建`</i>按钮，创建新的项目，点击<i class="setting">`打开`</i>按钮打开ttf|woff|woff2|otf格式字体文件，（注：暂不支持otf字体编辑和生成，打开otf字体后会自动转换成ttf字体）。</p>
             <p>点击<i class="setting">`保存项目`</i>按钮，保存当前项目。</p>
             <p>点击左侧<i class="setting">`项目列表`</i>打开保存的项目。</p>
             <p>点击左侧选中项目中的<i class="setting">`另存为`</i>按钮，保存项目副本。</p>
@@ -107,8 +106,9 @@
 
             <p>点击<i class="setting">`导出ttf`</i>按钮，导出ttf格式文件。</p>
             <p>点击<i class="setting">`导出woff`</i>按钮，导出woff格式文件。</p>
-            <p>点击<i class="setting">`导出zip`</i>按钮，导出包含ttf|woff|svg|eot文件的压缩包。</p>
-            <p>点击<i class="setting">`预览`</i>按钮，预览当前正在编辑的项目，chrome仅支持预览ttf|woff格式字体，safari支持预览svg字体，IE10+支持预览eot字体。</p>
+            <p>点击<i class="setting">`导出woff2`</i>按钮，导出woff2格式文件。</p>
+            <p>点击<i class="setting">`导出zip`</i>按钮，导出包含ttf|woff|woff2|svg|eot文件的压缩包。</p>
+            <p>点击<i class="setting">`预览`</i>按钮，预览当前正在编辑的项目，chrome仅支持预览ttf|woff|woff2格式字体，safari支持预览svg字体，IE10+支持预览eot字体。</p>
             <p>注意：<em>FontEditor为纯前端字体编辑器，处理字形个数超过3000个的项目时会超出脚本执行时间，导致导出失败，因此需要注意编辑超多字形时，请使用FontCreator等桌面软件。</em></p>
             <p><img src="./img/save.png"></p>
         </section>
@@ -161,10 +161,10 @@
         <section data-anchor="import">
             <h2>导入字形</h2>
 
-            <p>FontEditor支持ttf|woff|svg|otf字体文件的导入，支持单个svg字形的导入。</p>
+            <p>FontEditor支持ttf|woff|woff2|svg|otf字体文件的导入，支持单个svg字形的导入。</p>
 
             <h3>导入字体文件</h3>
-            <p>点击<i class="setting">`导入`->`导入字体文件`</i>按钮，从本地导入ttf|woff|otf字体文件，可以一次导入多个字体文件，如果文件较大的话，建议分批导入，导入的字形在主面板显示。</p>
+            <p>点击<i class="setting">`导入`->`导入字体文件`</i>按钮，从本地导入ttf|woff|woff2|otf字体文件，可以一次导入多个字体文件，如果文件较大的话，建议分批导入，导入的字形在主面板显示。</p>
             <p>点击<i class="setting">`导入`->`在线字体`</i>按钮，从字体库中导入所需的字体。</p>
             <p>点击<i class="setting">`导入`->`字体URL`</i>按钮，输入线上字体URL，可以导入线上字体。</p>
 
@@ -347,6 +347,7 @@
                 <li><em>`F2`</em>，打开/关闭字形编辑器</li>
                 <li><em>`F3`</em>，预览ttf字体</li>
                 <li><em>`F4`</em>，预览woff字体</li>
+                <li><em>`F6`</em>，预览woff2字体</li>
                 <li><em>`delete`</em>，删除选中字形</li>
                 <li><em>`ctrl + A`</em>，全选字形</li>
                 <li><em>`ctrl + C`</em>，复制选中字形</li>
@@ -418,25 +419,7 @@
 
     </div>
 
-    <script src="./dep/esl.js"></script>
     <script src="./dep/jquery.min.js"></script>
     <script src="./dep/bootstrap/js/bootstrap.min.js"></script>
-    <script>
-        require.config({
-            baseUrl: './src'
-        });
-        define('jquery', window.jQuery);
-        require(['main'])
-    </script>
-
-    <script>
-    var _hmt = _hmt || [];
-    /baidu.com$/.test(location.hostname) && (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?65ce30cdeda584c416e39648915689f7";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-    </script>
-</body>
+<script type="text/javascript" src="js/index.js"></script></body>
 </html>
